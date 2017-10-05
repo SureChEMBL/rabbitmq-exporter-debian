@@ -1,0 +1,47 @@
+# prometheus-rabbitmq-exporter uses environment variables for configuration
+
+#### URL to rabbitMQ management plugin
+# RABBIT_URL=http://localhost:15672
+
+#### Username for rabbitMQ management plugin
+# RABBIT_USER=guest
+
+#### Password for rabbitMQ management plugin
+# RABBIT_PASSWORD=guest
+
+#### Location of file with username (useful for docker secrets)
+# RABBIT_USER_FILE=''
+
+#### Location of file with password (useful for docker secrets)
+# RABBIT_PASSWORD_FILE=''
+
+#### Listening port for the exporter
+# PUBLISH_PORT=9090
+
+#### Log ouput format. TTY and JSON are suported
+# OUTPUT_FORMAT=TTY
+
+#### Log level.
+#### Possible values: "debug", "info", "warning", "error", "fatal", or "panic"
+# LOG_LEVEL=info
+
+#### Path to root certificate for access management plugin. Just needed if self
+#### signed certificate is used. Will be ignored if the file does not exist
+# CAFILE=ca.pem
+
+#### true/1 will ignore certificate errors of the management plugin
+# SKIPVERIFY=false
+
+#### Regex queue filter. Just matching names are exported
+# INCLUDE_QUEUES='.*'
+
+#### Regex, matching queue names are not exported (useful for short-lived rpc queues).
+#### First performed INCLUDE, after SKIP
+# SKIP_QUEUES='^$'
+
+#### Comma-separated list of extended scraping capabilities supported by the target
+#### RabbitMQ server
+# RABBIT_CAPABILITIES=''
+
+#### List of enabled modules. Just "connections" is not enabled by default
+# RABBIT_EXPORTERS='exchange,node,overview,queue'

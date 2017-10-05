@@ -1,0 +1,5 @@
+prometheus-rabbbitmq-exporter (0.22.0-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Yury Zavarin <yzavarin@ebi.ac.uk>  Thu, 05 Oct 2017 14:27:27 +0100

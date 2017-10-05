@@ -1,0 +1,12 @@
+[Unit]
+Description=Prometheus exporter for RabbitMQ
+Documentation=https://github.com/kbudde/rabbitmq_exporter
+
+[Service]
+Restart=always
+User=prometheus
+EnvironmentFile=/etc/default/prometheus-rabbitmq-exporter
+ExecStart=/usr/bin/prometheus-rabbitmq-exporter
+
+[Install]
+WantedBy=multi-user.target
