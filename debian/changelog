@@ -1,4 +1,4 @@
-prometheus-rabbbitmq-exporter (0.22.0-1) unstable; urgency=medium
+prometheus-rabbitmq-exporter (0.22.0-1) unstable; urgency=medium
 
   * Initial release.
 
