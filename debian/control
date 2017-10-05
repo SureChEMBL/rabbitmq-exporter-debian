@@ -6,6 +6,10 @@ Build-Depends:
  debhelper (>= 9.0.0),
  dh-golang (>= 0.17~),
  golang-any,
+ golang-github-kylelemons-godebug-dev,
+ golang-github-prometheus-client-golang-dev,
+ golang-github-sirupsen-logrus-dev,
+ golang-github-streadway-amqp-dev,
 Standards-Version: 3.9.8
 Vcs-Git: https://github.com/SureChEMBL/rabbitmq-exporter-debian.git
 Vcs-Browser: https://github.com/SureChEMBL/rabbitmq-exporter-debian
