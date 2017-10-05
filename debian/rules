@@ -11,6 +11,11 @@ DEBPKGNAME ?= $(shell dpkg-parsechangelog | sed -n -e 's/^Source: //p')
 %:
 	dh $@ --buildsystem=golang --with=golang,systemd --builddir=$(BUILDDIR)
 
+# rabbitmq_exporter needs testdata/* files for tests
+override_dh_auto_configure:
+	dh_auto_configure
+	cp -v -r testdata $(BUILDDIR)/src/$(DH_GOPKG)/
+
 override_dh_auto_install:
 	cp -v $(BUILDDIR)/bin/rabbitmq_exporter \
             debian/$(DEBPKGNAME)/usr/bin/$(DEBPKGNAME)
