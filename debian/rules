@@ -5,16 +5,24 @@
 export DH_GOPKG := github.com/kbudde/rabbitmq_exporter
 
 BUILDDIR := build
+BUILDDIR_GOPKG := $(BUILDDIR)/src/$(DH_GOPKG)
 
 DEBPKGNAME ?= $(shell dpkg-parsechangelog | sed -n -e 's/^Source: //p')
 
 %:
 	dh $@ --buildsystem=golang --with=golang,systemd --builddir=$(BUILDDIR)
 
-# rabbitmq_exporter needs testdata/* files for tests
 override_dh_auto_configure:
 	dh_auto_configure
-	cp -v -r testdata $(BUILDDIR)/src/$(DH_GOPKG)/
+
+	# rabbitmq_exporter needs testdata/* files for tests
+	cp -v -r testdata $(BUILDDIR_GOPKG)
+
+	# Integration tests require gopkg.in/ory-am/dockertest.v3.
+	# This library and its multiple dependencies are not debianized,
+	# so we build without these tests.
+	rm $(BUILDDIR_GOPKG)/integration_test.go
+	rm -rf $(BUILDDIR_GOPKG)/testenv
 
 override_dh_auto_install:
 	cp -v $(BUILDDIR)/bin/rabbitmq_exporter \
