@@ -10,10 +10,10 @@
 # RABBIT_PASSWORD=guest
 
 #### Location of file with username (useful for docker secrets)
-# RABBIT_USER_FILE=''
+# RABBIT_USER_FILE=
 
 #### Location of file with password (useful for docker secrets)
-# RABBIT_PASSWORD_FILE=''
+# RABBIT_PASSWORD_FILE=
 
 #### Listening port for the exporter
 # PUBLISH_PORT=9090
@@ -41,7 +41,7 @@
 
 #### Comma-separated list of extended scraping capabilities supported by the target
 #### RabbitMQ server
-# RABBIT_CAPABILITIES=''
+# RABBIT_CAPABILITIES=
 
 #### List of enabled modules. Just "connections" is not enabled by default
 # RABBIT_EXPORTERS='exchange,node,overview,queue'
